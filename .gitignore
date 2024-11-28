@@ -1,0 +1,9 @@
+
+# Ignorando a pasta venv que eu chamo de enviroments
+/enviroments
+
+# Ignorando arquivos de log
+**.log
+
+# Ignorando arquivos de cache
+**/__pycache__
