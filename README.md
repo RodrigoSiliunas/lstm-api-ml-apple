@@ -140,6 +140,50 @@ A API registra logs detalhados em um arquivo chamado `monitoring.log` na raiz do
 
 ---
 
+### **Como Criar e Executar com Docker**
+
+1. **Certifique-se de ter o Docker instalado**
+   - [Download Docker](https://www.docker.com/get-started)
+
+2. **Construa a imagem Docker**
+   No diretório onde está localizado o arquivo `Dockerfile`, execute o comando abaixo para criar a imagem:
+   ```bash
+   docker build -t my-app .
+   ```
+
+   Aqui:
+   - `-t my-app`: Define o nome da imagem como `my-app`.
+   - `.`: Refere-se ao diretório atual, onde o `Dockerfile` está localizado.
+
+3. **Execute o container Docker**
+   Rode o comando abaixo para criar e iniciar um container:
+   ```bash
+   docker run --name my-container -d -p 8000:8000 my-app
+   ```
+
+   Aqui:
+   - `--name my-container`: Define o nome do container como `my-container`.
+   - `-d`: Executa o container em segundo plano (modo daemon).
+   - `-p 8000:8000`: Mapeia a porta `8000` do container para a porta `8000` do host.
+
+4. **Acesse a API**
+   Após o container estar em execução, você pode acessar a API através de:
+
+   - Swagger UI: [http://localhost:8000/docs](http://localhost:8000/docs)
+   - Redoc: [http://localhost:8000/redoc](http://localhost:8000/redoc)
+
+5. **Parar e remover o container**
+   - Para parar o container:
+     ```bash
+     docker stop my-container
+     ```
+   - Para remover o container:
+     ```bash
+     docker rm my-container
+     ```
+
+---
+
 ### **Escalabilidade**
 - **Docker:** Implemente contêineres para simplificar o deploy.
 - **Kubernetes:** Gerencie múltiplas réplicas para lidar com grandes volumes de requisições.
@@ -151,4 +195,3 @@ A API registra logs detalhados em um arquivo chamado `monitoring.log` na raiz do
 Para dúvidas ou sugestões:
 - **E-mail:** rodrigo.siliunas12@gmail.com
 - **GitHub:** https://github.com/RodrigoSiliunas
-

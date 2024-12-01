@@ -1,4 +1,4 @@
-FROM python:3.14.0a2-slim-bullseye
+FROM python:3.9.20
 
 # Define o diretório de trabalho dentro do container
 WORKDIR /app
@@ -7,6 +7,9 @@ WORKDIR /app
 COPY requirements.txt .
 COPY main.py .
 COPY best_lstm_model_v4.keras .
+
+# Faz o upgrade do pip wheel e setuptools
+RUN pip install --upgrade pip wheel setuptools
 
 # Instala as dependências
 RUN pip install --no-cache-dir -r requirements.txt
